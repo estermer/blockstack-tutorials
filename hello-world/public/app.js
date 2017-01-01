@@ -5,7 +5,7 @@ $(document).ready(function() {
   var blockstack = new BlockstackAuth.AuthAgent(identityProviderURL, nameResolverURL);
   $('#logout-button').click(function() { blockstack.logout() })
   $('#login-button').click(function() { blockstack.requestLogin() })
-  
+
   function showProfile(username, profile) {
     var person = new Person(profile)
     $('.heading-name').html(person.name())
@@ -13,7 +13,7 @@ $(document).ready(function() {
     $('#section-1').hide()
     $('#section-2').show()
   }
-  
+
   if (blockstack.isUserLoggedIn()) { // If the user is logged in, get the session
     blockstack.loadSession(function(session) {
       showProfile(session.username, session.profile)
